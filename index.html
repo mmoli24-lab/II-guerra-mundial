@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geopolítica de la Segona Guerra Mundial</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        axis: '#dc2626',
+                        allies: '#2563eb',
+                        neutral: '#6b7280'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e1b4b 100%);
+        }
+        .tab-active {
+            border-bottom: 3px solid #3b82f6;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header principal -->
+    <header class="gradient-hero text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2.5 bg-blue-600/30 rounded-xl border border-blue-400/30 backdrop-blur-sm">
+                        <i class="fa-solid font-bold fa-globe text-2xl text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Geopolítica de la II Guerra Mundial</h1>
+                        <p class="text-xs sm:text-sm text-blue-200">Plataforma d'Aprenentatge Interactiv per a Secundària</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 bg-slate-800/60 p-1.5 rounded-lg border border-slate-700">
+                    <span class="text-xs px-2 py-1 text-slate-300 font-medium"><i class="fa-solid fa-graduation-cap text-yellow-400 mr-1.5"></i>Història Contemporània</span>
+                </div>
+            </div>
+            
+            <!-- Menú de navegació per pestanyes -->
+            <nav class="flex space-x-1 sm:space-x-4 overflow-x-auto pt-2 border-t border-slate-700/50 custom-scrollbar text-xs sm:text-sm font-medium text-slate-300">
+                <button onclick="switchTab('overview')" id="tab-overview" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2 tab-active">
+                    <i class="fa-solid fa-compass"></i><span>Visió General</span>
+                </button>
+                <button onclick="switchTab('timeline')" id="tab-timeline" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-map-location-dot"></i><span>Evolució Territorial</span>
+                </button>
+                <button onclick="switchTab('simulator')" id="tab-simulator" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-chess-knight"></i><span>Simulador Geopolític</span>
+                </button>
+                <button onclick="switchTab('conferences')" id="tab-conferences" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-handshake"></i><span>Conferències de Pau</span>
+                </button>
+                <button onclick="switchTab('glossary')" id="tab-glossary" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-book-open"></i><span>Glossari Clau</span>
+                </button>
+                <button onclick="switchTab('quiz')" id="tab-quiz" class="py-2.5 px-3 sm:px-4 rounded-t-lg transition hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-square-check"></i><span>Repte d'Avaluació</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- 1. SECCIÓ: VISIÓ GENERAL GEOPOLÍTICA -->
+        <section id="sec-overview" class="space-y-8">
+            <!-- Banner d'Introducció Conceptuadora -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 mb-4">
+                        <i class="fa-solid fa-lightbulb mr-1.5"></i>Com entendre el conflicte?
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">Més enllà de les batalles: Les forces diplomàtiques i territorials</h2>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
+                        Sovint la Segona Guerra Mundial s'estudia com una seqüència de combats militars, però en realitat va ser el resultat de profundes tensions geopolítiques: la fallida del sistema creat després de 1919, el desig d'expansió territorial (*Lebensraum*), la disputa pels recursos naturals i la lluita per la hegemonia mundial.
+                    </p>
+                </div>
+
+                <!-- Comparativa Militars vs Geopolítica -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-red-50/70 border border-red-200 rounded-xl p-5">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="p-2 bg-red-100 text-red-700 rounded-lg"><i class="fa-solid fa-crosshairs text-lg"></i></div>
+                            <h3 class="font-bold text-slate-800 text-base">Enfocament Militar Tradicional</h3>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside">
+                            <li>Tàctiques de combat i armament (Blitzkrieg, cuirassats, tancs).</li>
+                            <li>Dates de grans batalles (Stalingrad, Midway, Desembarcament de Normandia).</li>
+                            <li>Nombre de baixes i generals militars.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50/70 border border-blue-200 rounded-xl p-5">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="p-2 bg-blue-100 text-blue-700 rounded-lg"><i class="fa-solid fa-earth-americas text-lg"></i></div>
+                            <h3 class="font-bold text-slate-800 text-base">Enfocament Geopolític (Aquest Mòdul)</h3>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside">
+                            <li><strong>Pactes i Aliances:</strong> Pacte d'Acer, Pacte Ribbentrop-Molotov, Carta de l'Atlàntic.</li>
+                            <li><strong>Anexions i Fronteres:</strong> L'Aplacament (*Appeasement*), Sudets, reordenació postguerra.</li>
+                            <li><strong>Recursos i Estratègia:</strong> Accés al petroli, rutes marítimes, blocs ideològics.</li>
+                            <li><strong>Nou Ordre Internacional:</strong> De la Societat de Nacions a l'ONU i la Guerra Freda.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Els Blocs Geopolítics Principals -->
+            <h3 class="text-xl font-bold text-slate-900 pt-4 flex items-center">
+                <i class="fa-solid fa-shield-halved text-blue-600 mr-2.5"></i>Els Dos Grans Blocs i les Seves Motivacions
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Els Països de l'Eix -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-red-600"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-red-100 text-red-700 rounded-md">
+                            Potències de l'Eix
+                        </span>
+                        <i class="fa-solid fa-triangle-exclamation text-slate-400 text-lg"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Alemanya, Itàlia i el Japó (Pacte Tripartit)</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        Unides pel feixisme/nazisme, el militarisme i el desig de reestructurar l'ordre mundial mitjançant l'expansió territorial agressiva.
+                    </p>
+                    <div class="space-y-3 border-t border-slate-100 pt-4 text-xs sm:text-sm">
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-red-600 min-w-[90px]">Alemanya:</span>
+                            <span class="text-slate-600">Revisió de Versalles i creació de l'Espai Vital (*Lebensraum*) a l'Europa Oriental.</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-red-600 min-w-[90px]">Japó:</span>
+                            <span class="text-slate-600">Creació de l'"Esfera de Coprosperitat" a l'Àsia-Pacífic per controlar recursos (petroli, cautxú).</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-red-600 min-w-[90px]">Itàlia:</span>
+                            <span class="text-slate-600">Projecte de *Mare Nostrum* a la Mediterrània i expansions a Àfrica (Etiòpia).</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Els Aliats -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-blue-600"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-blue-100 text-blue-700 rounded-md">
+                            La Gran Aliança (Aliats)
+                        </span>
+                        <i class="fa-solid fa-building-shield text-slate-400 text-lg"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Gran Bretanya, URSS, EUA, Xina i França Lliure</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                        Una aliança heterogènia entre democràcies liberals de l'Oest i un estat socialista (URSS) units pel perill comú de l'expansió de l'Eix.
+                    </p>
+                    <div class="space-y-3 border-t border-slate-100 pt-4 text-xs sm:text-sm">
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-blue-600 min-w-[90px]">Gran Bretanya:</span>
+                            <span class="text-slate-600">Defensa de l'equilibri europeu i de les seves rutes imperials colonials.</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-blue-600 min-w-[90px]">URSS:</span>
+                            <span class="text-slate-600">Defensa del propi territori i creació posterior d'un cinturó de seguretat a l'Europa Oriental.</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <span class="font-bold text-blue-600 min-w-[90px]">EUA:</span>
+                            <span class="text-slate-600">Defensa de la llibertat de comerç, autodeterminació i hegemonia global emergent.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SECCIÓ: EVOLUCIÓ TERRITORIAL I MAPA INTERACTIU -->
+        <section id="sec-timeline" class="space-y-6 hidden">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Evolució Geopolítica i Territorial (1938-1945)</h2>
+                        <p class="text-xs sm:text-sm text-slate-600">Explora com les fronteres i la influència política van canviar pas a pas.</p>
+                    </div>
+                    <!-- Selector d'Any -->
+                    <div class="flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 self-start md:self-auto">
+                        <button onclick="setYear(1938)" id="year-1938" class="year-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-blue-600 text-white shadow-sm">1938</button>
+                        <button onclick="setYear(1939)" id="year-1939" class="year-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-slate-200">1939</button>
+                        <button onclick="setYear(1941)" id="year-1941" class="year-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-slate-200">1941</button>
+                        <button onclick="setYear(1943)" id="year-1943" class="year-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-slate-200">1943</button>
+                        <button onclick="setYear(1945)" id="year-1945" class="year-btn px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 hover:bg-slate-200">1945</button>
+                    </div>
+                </div>
+
+                <!-- Contingut Dinàmic de l'Any -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Mapa / Representació Esquemàtica Territorial -->
+                    <div class="lg:col-span-2 bg-slate-900 rounded-xl p-5 text-white flex flex-col justify-between min-h-[360px] relative overflow-hidden">
+                        <div class="flex justify-between items-start z-10">
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-blue-400 font-semibold">Estat de les Fronteres i Dominis</span>
+                                <h3 id="map-title" class="text-2xl font-black text-white mt-1">1938: L'Aplacament i l'Anschluss</h3>
+                            </div>
+                            <span id="map-badge" class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold rounded-full">
+                                Tensions Preliminars
+                            </span>
+                        </div>
+
+                        <!-- Esquema Visual del Mapa Geopolític -->
+                        <div id="map-diagram" class="my-6 py-6 px-4 bg-slate-800/80 rounded-lg border border-slate-700/80 grid grid-cols-1 md:grid-cols-3 gap-4 text-center z-10">
+                            <div class="bg-slate-700/50 p-3 rounded-lg border border-slate-600">
+                                <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Europa Occidental</span>
+                                <p id="map-west" class="text-xs sm:text-sm font-semibold text-slate-200">Politica d'Aplacament (GB i França accepten concessions per evitar la guerra).</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-3 rounded-lg border border-slate-600">
+                                <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Europa Central / Oriental</span>
+                                <p id="map-east" class="text-xs sm:text-sm font-semibold text-amber-400">Alemanya annexa Àustria (Anschluss) i els Sudets (Txecoslovàquia).</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-3 rounded-lg border border-slate-600">
+                                <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Àsia i Pacífic</span>
+                                <p id="map-asia" class="text-xs sm:text-sm font-semibold text-slate-200">El Japó expandeix la seva invasió a la Xina (Segona Guerra Sino-Japonesa).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center text-xs text-slate-400 z-10 pt-2 border-t border-slate-800">
+                            <span><i class="fa-solid fa-circle-info mr-1 text-blue-400"></i> Prem els botons superiors per avançar en el temps</span>
+                            <span id="map-status-summary" class="font-medium text-slate-300">Equilibri de poder: Inestable</span>
+                        </div>
+                    </div>
+
+                    <!-- Explicació i Claus Geopolítiques -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-lg mb-3 flex items-center">
+                                <i class="fa-solid fa-key text-blue-600 mr-2"></i>Esdeveniment Clau
+                            </h4>
+                            <div id="timeline-details" class="space-y-3 text-xs sm:text-sm text-slate-700">
+                                <p class="leading-relaxed">
+                                    A la <strong>Conferència de Múnic (1938)</strong>, Gran Bretanya i França van permetre a Hitler annexar els Sudets (poblats per alemanya a Txecoslovàquia) pensant que així satisfarien les seves ambicions territorials i evitarien la guerra.
+                                </p>
+                                <div class="bg-blue-100/60 p-3 rounded-lg border border-blue-200 text-blue-900 font-medium">
+                                    <i class="fa-solid fa-quote-left mr-1 opacity-50"></i>
+                                    "L'Aplacament va demostrar la feblesa de la Societat de Nacions i va convèncer Hitler que les democràcies occidentals no actuarien."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Impacte Geopolític:</span>
+                            <p id="timeline-impact" class="text-xs text-slate-700 font-semibold mt-1">Destrucció del sistema de seguretat col·lectiva creat el 1919.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECCIÓ: SIMULADOR DE DECISIONS HISTÒRIQUES -->
+        <section id="sec-simulator" class="space-y-6 hidden">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="max-w-3xl mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 mb-3">
+                        <i class="fa-solid fa-chess-board mr-1.5"></i>Joc de Rol Històric
+                    </span>
+                    <h2 class="text-2xl font-bold text-slate-900">Simulador de Presa de Decisions Geopolítiques</h2>
+                    <p class="text-xs sm:text-sm text-slate-600">
+                        Posa’t a la pell dels líders de l'època. Quina decisió hauries pres en aquests moments crítics? Descobreix el dilema i les conseqüències reals.
+                    </p>
+                </div>
+
+                <!-- Contingut del Simulador -->
+                <div id="sim-container" class="bg-slate-50 border border-slate-200 rounded-xl p-6">
+                    <!-- S'injecta via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECCIÓ: CONFERÈNCIES DE PAU I NOU ORDRE -->
+        <section id="sec-conferences" class="space-y-6 hidden">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Les Conferències de Pau i la Redefinició del Món</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                    Mentre la guerra es lliurava, els "Tres Grans" (EUA, Gran Bretanya i l'URSS) es van reunir per dibuixar el mapa del món de la postguerra.
+                </p>
+
+                <!-- Cards de les Conferències -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Teheran 1943 -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between hover:border-blue-300 transition shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md">Novembre 1943</span>
+                                <i class="fa-solid fa-monument text-slate-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Conferència de Teheran</h3>
+                            <p class="text-xs text-slate-500 mb-4">Churchill, Roosevelt, Stalin</p>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside">
+                                <li>Acord per obrir un "segon front" a l'Europa Occidental (Futur Desembarcament de Normandia).</li>
+                                <li>Discussió inicial sobre les noves fronteres de Polònia i la URSS.</li>
+                                <li>Compromís de suport a la resistència iugoslava.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-blue-700">
+                            Resultat: Primer consens estratègic entre els Tres Grans.
+                        </div>
+                    </div>
+
+                    <!-- Ialta 1945 -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between hover:border-blue-300 transition shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-1 rounded-md">Febrer 1945</span>
+                                <i class="fa-solid fa-city text-slate-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Conferència de Ialta</h3>
+                            <p class="text-xs text-slate-500 mb-4">Churchill, Roosevelt, Stalin</p>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside">
+                                <li>Divisió d'Alemanya i Berlín en <strong>4 zones d'ocupació</strong> (EUA, GB, França, URSS).</li>
+                                <li>Bases per a la creació de l'<strong>Organització de les Nacions Unides (ONU)</strong>.</li>
+                                <li>Compromís soviètic de declaració de guerra al Japó.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-amber-700">
+                            Resultat: Dibuix de les zones d'influència a Europa.
+                        </div>
+                    </div>
+
+                    <!-- Potsdam 1945 -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between hover:border-blue-300 transition shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-md">Juliol-Agost 1945</span>
+                                <i class="fa-solid fa-handshake-simple text-slate-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Conferència de Potsdam</h3>
+                            <p class="text-xs text-slate-500 mb-4">Attlee, Truman, Stalin</p>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc list-inside">
+                                <li>Programa de les "4 D" per a Alemanya: Desmilitarització, Desnazificació, Descentralització i Democratització.</li>
+                                <li>Nova frontera d'Alemanya i Polònia (línia Oder-Neisse).</li>
+                                <li> Ultimàtum al Japó per a la rendició incondicional.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-xs font-semibold text-emerald-700">
+                            Resultat: Inici visible de la divisió de la Guerra Freda.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taula Reorganizació de l'Ordre Mundial -->
+                <div class="mt-8 bg-blue-900 text-white rounded-xl p-6">
+                    <h3 class="text-lg font-bold mb-3 flex items-center">
+                        <i class="fa-solid fa-arrows-split-up-and-left text-blue-400 mr-2"></i>
+                        El Naixement del Món Bipolar i la Postguerra
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                        <div class="bg-blue-950/60 p-4 rounded-lg border border-blue-800">
+                            <h4 class="font-bold text-blue-300 mb-2">1. La Fi de l'Hegemonia Europea</h4>
+                            <p class="text-slate-300">
+                                França i Gran Bretanya van quedar exhaustes econòmicament i militarment. Això va accelerar el procés de **descolonització** a Àsia i Àfrica en les dècades posteriors.
+                            </p>
+                        </div>
+                        <div class="bg-blue-950/60 p-4 rounded-lg border border-blue-800">
+                            <h4 class="font-bold text-blue-300 mb-2">2. El Món Bipolar (EUA vs URSS)</h4>
+                            <p class="text-slate-300">
+                                Es van consolidar dues superpotències antagòniques amb ideologies oposades (Capitalisme democràtic vs Socialisme soviètic), iniciant l'era de la **Guerra Freda**.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECCIÓ: GLOSSARI GEOPOLÍTIC -->
+        <section id="sec-glossary" class="space-y-6 hidden">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Glossari de Conceptes Geopolítics</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mb-6">Termes imprescindibles per analitzar les relacions internacionals del segle XX.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="glossary-grid">
+                    <!-- S'omple dinàmicament via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SECCIÓ: REPTE D'AVALUACIÓ INTERACTIU -->
+        <section id="sec-quiz" class="space-y-6 hidden">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-3">
+                        <i class="fa-solid fa-vial mr-1.5"></i>Comprova el teu aprenentatge
+                    </span>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Repte de Comprensió Geopolítica</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        Respon a les següents preguntes per posar a prova la teva visió estratègica i coneixement de les relacions internacionals de la II Guerra Mundial.
+                    </p>
+                </div>
+
+                <div id="quiz-box" class="bg-slate-50 border border-slate-200 rounded-xl p-6 max-w-3xl">
+                    <!-- JS Quiz Renderer -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs sm:text-sm space-y-2">
+            <p>Recurs Educatiu de Geopolítica de la Segona Guerra Mundial per a Educació Secundària (ESO / Batxillerat).</p>
+            <p class="text-slate-500">Desenvolupat amb enfocament en competències històriques, anàlisi territorial i pensament crític.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DE L'APLICACIÓ -->
+    <script>
+        // Dades de l'evolució territorial
+        const timelineData = {
+            1938: {
+                title: "1938: L'Aplacament i l'Anschluss",
+                badge: "Tensions Preliminars",
+                west: "Política d'Aplacament: Gran Bretanya i França cedeixen davant les demandes de Hitler per evitar la guerra.",
+                east: "Alemanya s'annexiona Àustria (Anschluss) i ocupa els Sudets (Txecoslovàquia) després de l'Acord de Múnic.",
+                asia: "El Japó amplia el seu control al nord i est de la Xina en una guerra d'alta intensitat.",
+                details: "A la <strong>Conferència de Múnic (1938)</strong>, les potències democràtiques van cedir els Sudets a Alemanya. Aquesta política coneguda com <em>Appeasement</em> (Aplacament) va fracassar en el seu intent de frenar les ambicions expansionistes.",
+                impact: "Fallida del sistema de seguretat col·lectiva i desarticulació de l'estat txecoslovac."
+            },
+            1939: {
+                title: "1939: El Pacte Ribbentrop-Molotov i l'inici del conflicte",
+                badge: "Inici de la Guerra",
+                west: "França i Gran Bretanya declaren la guerra a Alemanya el 3 de setembre després de la invasió de Polònia.",
+                east: "Pacte Nazi-Soviètic: Alemanya i la URSS se reparteixen Polònia i l'Europa Oriental en esferes d'influència.",
+                asia: "El Japó es consolida a Manchúria i manté enfrontaments fronterers amb l'URSS a Khalkhin Gol.",
+                details: "El **Pacte de No-Agressió Ribbentrop-Molotov** entre Hitler i Stalin va ser un xoc geopolític: dos enemics ideològics pactaven la divisió de Polònia i els Països Bàltics per evitar, de moment, un enfrontament directe.",
+                impact: "Desaparició de Polònia com a estat sobirà i inici de la II Guerra Mundial a Europa."
+            },
+            1941: {
+                title: "1941: La Mundialització del Conflicte",
+                badge: "Guerra Global",
+                west: "Signatura de la <strong>Carta de l'Atlàntic</strong> entre EUA (Roosevelt) i Gran Bretanya (Churchill).",
+                east: "Operació Barbarroja: Alemanya trenca el pacte i envaeix la URSS, obrint el front oriental.",
+                asia: "Atac japonès a Pearl Harbor (7 desembre). Els EUA entren oficialment a la guerra en el front del Pacífic i Europa.",
+                details: "El conflicte passa de ser una guerra europea a un enfrontament d'abast global. L'entrada dels EUA i la invasió de la URSS creen la **'Gran Aliança'** entre la Gran Bretanya, la URSS i els Estats Units.",
+                impact: "Alineament geopolític mundial definitiu entre l'Eix i els Aliats."
+            },
+            1943: {
+                title: "1943: El Canvi de Marees i la Dibuix de les Aliances",
+                badge: "Inversió Geopolítica",
+                west: "Els Aliats desembarquen a Itàlia; el règim feixista de Mussolini col·lapsa en el sud.",
+                east: "Derrota alemanya a Stalingrad i Kursk; l'Exèrcit Roig comença l'avanç cap a l'Europa Central.",
+                asia: "Els EUA inicien l'estratègia del 'salt d'illes' al Pacífic per aïllar les bases japoneses.",
+                details: "A la **Conferència de Teheran (1943)**, els 'Tres Grans' (Stalin, Roosevelt i Churchill) es reuneixen per primera vegada en persona per coordinar l'estratègia militar i el futur geopolític europeu.",
+                impact: "L'Eix perd la iniciativa estratègica i passa a una posició defensiva desesperada."
+            },
+            1945: {
+                title: "1945: Reordenació Postguerra i l'Era Nuclear",
+                badge: "Nou Ordre Mundial",
+                west: "Alemanya es rendeix incondicionalment al maig. Divisió d'Alemanya en 4 zones d'ocupació.",
+                east: "L'URSS ocupa tota l'Europa Oriental i estableix governs afins (futur Bloc de l'Est).",
+                asia: "Llançament de les bombes atòmiques a Hiroshima i Nagasaki. Rendició del Japó al setembre.",
+                details: "Les **Conferències de Ialta i Potsdam** redefineixen les fronteres europees (especialment Polònia i Alemanya) i s'aprova la Carta de les Nacions Unides (ONU). Comença la bipolaritat EUA - URSS.",
+                impact: "Fi del feixisme europeu, inici de la Descolonització i naixement de la Guerra Freda."
+            }
+        };
+
+        // Simulador de Decisions
+        const simScenarios = [
+            {
+                id: 0,
+                title: "Escenari 1: La Conferència de Múnic (1938)",
+                role: "Ets Neville Chamberlain, Primer Ministre de la Gran Bretanya.",
+                context: "Hitler exigeix l'annexió de la regió dels Sudets a Txecoslovàquia, al·legant que hi viu població germanòfona. Amenaça amb la guerra si no se li cedeix.",
+                options: [
+                    {
+                        text: "Opció A: Acceptar les demandes de Hitler (Aplacament) a canvi de la seva promesa de no exigir més territoris.",
+                        feedback: "<strong>Decisió Històrica Real:</strong> Vas signar els Acords de Múnic. Vas evitar la guerra a curt termini, però vas transmetre feblesa. Mesos després, Hitler va ocupar tota Txecoslovàquia.",
+                        isHistorical: true
+                    },
+                    {
+                        text: "Opció B: Formar una aliança immediata amb França i la URSS per amenaçar Hitler amb una guerra de dos fronts.",
+                        feedback: "<strong>Alternativa Històrica:</strong> Hauries pogut frenar Hitler abans que s'armés del tot, però l'opinió pública britànica i francesa estava profundament traumatitzada per la I Guerra Mundial i no volia anar a la guerra per Txecoslovàquia.",
+                        isHistorical: false
+                    }
+                ]
+            },
+            {
+                id: 1,
+                title: "Escenari 2: El Dilema Soviètic (Estiu de 1939)",
+                role: "Ets Josef Stalin, líder de la Unió Soviètica.",
+                context: "Saps que Hitler té com a objectiu final destruir el comunisme i conquerir territori a l'Est. Tanmateix, les democràcies occidentals (França i GB) dubten en signar una aliança ferma amb tu. Hitler et proposa un pacte de no-agressió secret.",
+                options: [
+                    {
+                        text: "Opció A: Signar el Pacte de No-Agressió amb l'Alemanya Nazi (Pacte Ribbentrop-Molotov).",
+                        feedback: "<strong>Decisió Històrica Real:</strong> Vas guanyar temps per rearmar la URSS i vas aconseguir la meitat de Polònia i els països bàltics. Però el 1941, Hitler et va atacar per sorpresa igualment.",
+                        isHistorical: true
+                    },
+                    {
+                        text: "Opció B: Rebutjar Hitler i buscar desesperadament un pacte antifeixista amb Gran Bretanya i França.",
+                        feedback: "<strong>Alternativa Històrica:</strong> Western powers no confiaven en la URSS. Podries haver hagut de combatre l'Alemanya nazi en solitari el 1939 sense estar preparat.",
+                        isHistorical: false
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Escenari 3: L'Embargament de Petroli al Japó (1941)",
+                role: "Ets Franklin D. Roosevelt, President dels Estats Units.",
+                context: "El Japó s'està expandint agressivament per la Xina i la Indoxina. Els EUA no estan en guerra, però subministren el 80% del petroli que consumeix el Japó.",
+                options: [
+                    {
+                        text: "Opció A: Aplicar un embargament total de petroli i congelar els actius japonesos.",
+                        feedback: "<strong>Decisió Històrica Real:</strong> L'embargament va asfiar l'economia japonesa. Davant la falta de recursos, els militars japonesos van decidir atacar Pearl Harbor per neutralitzar la flota dels EUA i conquerir el petroli d'Indonèsia.",
+                        isHistorical: true
+                    },
+                    {
+                        text: "Opció B: Mantenir el comerç de petroli per evitar provocar un atac japonès.",
+                        feedback: "<strong>Alternativa Històrica:</strong> Hauries evitat l'atac immediat, però hauries finançat indirectament l'expansió imperialista japonesa per tota Àsia.",
+                        isHistorical: false
+                    }
+                ]
+            }
+        ];
+
+        let currentSimIndex = 0;
+
+        // Glossari de Conceptes
+        const glossaryTerms = [
+            { term: "Lebensraum (Espai Vital)", desc: "Concepte geopolític nazi segons el qual el poble alemany necessitava expandir-se territorialment cap a l'Europa Oriental a costa dels pobles eslaus." },
+            { term: "Appeasement (Aplacament)", desc: "Política diplomàtica de Gran Bretanya i França (1936-1939) consistent a cedir davant les demandes de Hitler per evitar una nova guerra generalitzada." },
+            { term: "Pacte Tripartit", desc: "Aliança militar signada el 1940 entre Alemanya, Itàlia i el Japó (l'Eix) per establir un nou ordre en les seves respectives zones d'influència." },
+            { term: "Carta de l'Atlàntic (1941)", desc: "Declaració conjunta dels EUA i la Gran Bretanya que fixava els principis del món postguerra: llibertat dels mars, autodeterminació dels pobles i cooperació econòmica." },
+            { term: "Bipolaritat", desc: "Estructura del sistema internacional caracteritzada per la dominació de dues superpotències antagòniques (EUA i URSS) després de 1945." },
+            { term: "Línia Oder-Neisse", desc: "Frontera fixada a la Conferència de Potsdam entre Alemanya i Polònia, desplaçant Polònia cap a l'oest i annexionant territories orientals a la URSS." }
+        ];
+
+        // Preguntes del Quiz
+        const quizQuestions = [
+            {
+                question: "Quina era la principal motivació geopolítica de l'Alemanya nazi per a la seva expansió cap a l'Europa Oriental?",
+                options: [
+                    "Aconseguir ports d'aigua calenta a la Mediterrània.",
+                    "La teoria de l'Espai Vital (Lebensraum) i el domini territorial sobre l'Europa de l'Est.",
+                    "Defensar les fronteres de la Societat de Nacions.",
+                    "Crear un mercat de lliure comerç amb la Unió Soviètica."
+                ],
+                correct: 1,
+                explanation: "Correcte! La doctrina del Lebensraum cercava conquerir l'Europa Oriental per a la colonització alemanya i l'explotació dels seus recursos."
+            },
+            {
+                question: "Què va significar la Política d'Aplacament (Appeasement) portada a terme per Gran Bretanya i França?",
+                options: [
+                    "Una estratègia d'atac d'immediat contra Alemanya el 1936.",
+                    "Una cessió contínua davant les demandes territorials de Hitler per intentar mantenir la pau.",
+                    "L'annexió de països neutralitzats per la Societat de Nacions.",
+                    "L'establiment d'un embargament comercial total contra les potències de l'Eix."
+                ],
+                correct: 1,
+                explanation: "Correcte! L'Aplacament (simbolitzat a Múnic 1938) intentava evitar la guerra concedint demandes territorials a Hitler."
+            },
+            {
+                question: "Quin pacte secret va permetre a Alemanya i la Unió Soviètica repartir-se Polònia el 1939?",
+                options: [
+                    "La Carta de l'Atlàntic.",
+                    "El Tractat de Versalles.",
+                    "El Pacte Ribbentrop-Molotov.",
+                    "Els Acords de Yalta."
+                ],
+                correct: 2,
+                explanation: "Excel·lent! El Pacte Nazi-Soviètic o Ribbentrop-Molotov incloïa una clàusula secreta per a la divisió de Polònia i els Bàltics."
+            },
+            {
+                question: "A quina conferència de pau es va decidir la divisió d'Alemanya en 4 zones d'ocupació?",
+                options: [
+                    "Conferència de Múnic (1938).",
+                    "Conferència de Teheran (1943).",
+                    "Conferència de Ialta (1945).",
+                    "Tractat de París (1947)."
+                ],
+                correct: 2,
+                explanation: "Molt bé! A Ialta (febrer de 1945), Stalin, Roosevelt i Churchill van acordar dividir Alemanya i Berlín en 4 zones (EUA, GB, França, URSS)."
+            }
+        ];
+
+        // Canvi de Pestanyes
+        function switchTab(tabId) {
+            // Amagar totes les seccions
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            // Mostrar la secció seleccionada
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+
+            // Desactivar totes les pestanyes
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('tab-active'));
+            // Activar la pestanya actual
+            document.getElementById(`tab-${tabId}`).classList.add('tab-active');
+        }
+
+        // Actualització del Mapa/Cronologia
+        function setYear(year) {
+            const data = timelineData[year];
+            if (!data) return;
+
+            // Actualitzar estat visual dels botons
+            document.querySelectorAll('.year-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-200');
+            });
+            const activeBtn = document.getElementById(`year-${year}`);
+            activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-200');
+            activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+
+            // Actualitzar contingut
+            document.getElementById('map-title').innerText = data.title;
+            document.getElementById('map-badge').innerText = data.badge;
+            document.getElementById('map-west').innerText = data.west;
+            document.getElementById('map-east').innerText = data.east;
+            document.getElementById('map-asia').innerText = data.asia;
+            document.getElementById('timeline-details').innerHTML = `<p class="leading-relaxed">${data.details}</p>`;
+            document.getElementById('timeline-impact').innerText = data.impact;
+        }
+
+        // Renderitzar el Simulador de Decisions
+        function renderSimulator() {
+            const sc = simScenarios[currentSimIndex];
+            const container = document.getElementById('sim-container');
+
+            let html = `
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Cas ${currentSimIndex + 1} de ${simScenarios.length}</span>
+                    <span class="text-xs px-2.5 py-1 bg-amber-100 text-amber-900 rounded-md font-semibold">${sc.role}</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">${sc.title}</h3>
+                <p class="text-xs sm:text-sm text-slate-700 bg-white p-4 rounded-lg border border-slate-200 mb-6 leading-relaxed">
+                    ${sc.context}
+                </p>
+                
+                <h4 class="text-sm font-bold text-slate-800 mb-3">Quina opció esculls?</h4>
+                <div class="space-y-3 mb-6">
+            `;
+
+            sc.options.forEach((opt, idx) => {
+                html += `
+                    <button onclick="makeDecision(${idx})" class="w-full text-left p-4 rounded-xl border border-slate-300 bg-white hover:border-blue-500 hover:bg-blue-50/50 transition font-medium text-xs sm:text-sm text-slate-800 flex items-start space-x-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs">${idx === 0 ? 'A' : 'B'}</span>
+                        <span>${opt.text}</span>
+                    </button>
+                `;
+            });
+
+            html += `</div>
+                <div id="sim-feedback" class="hidden rounded-xl p-4 border text-xs sm:text-sm leading-relaxed mb-4"></div>
+                <div class="flex justify-end space-x-3">
+            `;
+
+            if (currentSimIndex < simScenarios.length - 1) {
+                html += `<button id="next-sim-btn" onclick="nextScenario()" class="hidden px-4 py-2 bg-blue-600 text-white font-bold rounded-lg text-xs hover:bg-blue-700 transition">Següent Escenari <i class="fa-solid fa-arrow-right ml-1"></i></button>`;
+            } else {
+                html += `<button id="next-sim-btn" onclick="resetSim()" class="hidden px-4 py-2 bg-emerald-600 text-white font-bold rounded-lg text-xs hover:bg-emerald-700 transition">Reiniciar Simulador <i class="fa-solid fa-rotate-right ml-1"></i></button>`;
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function makeDecision(optionIndex) {
+            const sc = simScenarios[currentSimIndex];
+            const opt = sc.options[optionIndex];
+            const feedbackBox = document.getElementById('sim-feedback');
+            const nextBtn = document.getElementById('next-sim-btn');
+
+            feedbackBox.classList.remove('hidden', 'bg-blue-50', 'border-blue-200', 'text-blue-900', 'bg-slate-100');
+            
+            if (opt.isHistorical) {
+                feedbackBox.classList.add('bg-blue-50', 'border-blue-300', 'text-blue-900');
+            } else {
+                feedbackBox.classList.add('bg-slate-100', 'border-slate-300', 'text-slate-800');
+            }
+
+            feedbackBox.innerHTML = opt.feedback;
+            nextBtn.classList.remove('hidden');
+        }
+
+        function nextScenario() {
+            currentSimIndex++;
+            renderSimulator();
+        }
+
+        function resetSim() {
+            currentSimIndex = 0;
+            renderSimulator();
+        }
+
+        // Renderitzar Glossari
+        function renderGlossary() {
+            const container = document.getElementById('glossary-grid');
+            let html = '';
+            glossaryTerms.forEach(item => {
+                html += `
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover:shadow-sm transition">
+                        <h4 class="font-bold text-slate-900 text-sm mb-1 text-blue-700">${item.term}</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">${item.desc}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Renderitzar i Controlar el Quiz
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-box');
+            if (currentQuizIndex >= quizQuestions.length) {
+                // Final del Quiz
+                container.innerHTML = `
+                    <div class="text-center py-6 space-y-4">
+                        <div class="inline-flex p-4 bg-emerald-100 text-emerald-600 rounded-full text-3xl">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">Enhorabona! Has completat el repte.</h3>
+                        <p class="text-sm text-slate-600">La teva puntuació: <span class="font-extrabold text-blue-600 text-lg">${quizScore} / ${quizQuestions.length}</span></p>
+                        <p class="text-xs text-slate-500 max-w-md mx-auto">
+                            ${quizScore === quizQuestions.length ? 'Excel·lent visió geopolítica! Has après els conceptes diplomàtics principals.' : 'Bon intent! Pots revisar les seccions d\'Evolució Territorial i Conferències per millorar.'}
+                        </p>
+                        <button onclick="restartQuiz()" class="px-5 py-2.5 bg-blue-600 text-white font-bold text-xs rounded-xl hover:bg-blue-700 transition">
+                            Tornar a intentar
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            const q = quizQuestions[currentQuizIndex];
+            let html = `
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}</span>
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md">Puntuació: ${quizScore}</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-4">${q.question}</h3>
+                <div class="space-y-2.5 mb-6">
+            `;
+
+            q.options.forEach((opt, idx) => {
+                html += `
+                    <button onclick="checkQuizAnswer(${idx})" class="quiz-opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-100 hover:border-slate-300 transition text-xs sm:text-sm text-slate-800">
+                        ${opt}
+                    </button>
+                `;
+            });
+
+            html += `</div><div id="quiz-explanation" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4"></div>`;
+            html += `<div class="flex justify-end"><button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-4 py-2 bg-blue-600 text-white font-bold rounded-lg text-xs hover:bg-blue-700 transition">Següent Pregunta <i class="fa-solid fa-arrow-right ml-1"></i></button></div>`;
+
+            container.innerHTML = html;
+        }
+
+        function checkQuizAnswer(selectedIndex) {
+            const q = quizQuestions[currentQuizIndex];
+            const explanationBox = document.getElementById('quiz-explanation');
+            const nextBtn = document.getElementById('quiz-next-btn');
+
+            // Desactivar botons
+            document.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.disabled = true);
+
+            explanationBox.classList.remove('hidden');
+
+            if (selectedIndex === q.correct) {
+                quizScore++;
+                explanationBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 bg-emerald-50 border border-emerald-200 text-emerald-900";
+                explanationBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> ${q.explanation}`;
+            } else {
+                explanationBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 bg-red-50 border border-red-200 text-red-900";
+                explanationBox.innerHTML = `<i class="fa-solid fa-circle-xmark text-red-600 mr-1.5"></i> Resposta incorrecta. La opció correcta era: <strong>${q.options[q.correct]}</strong>.<br><span class="mt-1 block">${q.explanation}</span>`;
+            }
+
+            nextBtn.classList.remove('hidden');
+        }
+
+        function nextQuizQuestion() {
+            currentQuizIndex++;
+            renderQuiz();
+        }
+
+        function restartQuiz() {
+            currentQuizIndex = 0;
+            quizScore = 0;
+            renderQuiz();
+        }
+
+        // Inicialització en carregar la pàgina
+        window.onload = function() {
+            renderSimulator();
+            renderGlossary();
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
